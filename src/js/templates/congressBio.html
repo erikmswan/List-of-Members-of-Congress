@@ -1,4 +1,7 @@
 
+<div class="col-md-3 picture">
+  <img ng-src="http://govtrack.us/data/photos/{{ info.person.id }}-200px.jpeg">
+</div>
 <div class="col-md-4 bio">
   <h2><a ng-href="{{ info.website }}">{{ info.title_long }} {{ info.person.firstname }} {{ nicknamePresent(info.person.nickname) }} {{ info.person.lastname }}</a></h2>
   <h4 class="party">{{ info.party }}</h4>
@@ -10,10 +13,7 @@
     <br><a ng-href="{{ info.extra.contact_form }}">Contact this congressperson</a>
   </p>
 </div>
-<div class="col-md-4 picture">
-  <img ng-src="http://govtrack.us/data/photos/{{ info.person.id }}-200px.jpeg">
-</div>
-<div class="col-md-4 address">
+<div class="col-md-5 address">
   <h2>Address</h2>
   <address>
     <strong>{{ info.extra.office }}</strong><br>
