@@ -1,0 +1,21 @@
+
+<div class="col-md-6">
+  <h2>{{ info.title_long }} {{ info.person.firstname }} {{ nicknamePresent(info.person.nickname) }} {{ info.person.lastname}}</h2>
+  <h4 class="party">{{ info.party }}</h4>
+  <p class="description"><strong>Description: </strong>{{ info.description }}<br>
+    <strong>Gender: </strong>{{ info.person.gender_label }}<br>
+    <strong>Birthday: </strong>{{ info.person.birthday | date }}
+  </p>
+  <p class="contact"><a ng-href="{{ info.website }}">Visit their Website</a>
+    <br><a ng-href="{{ info.extra.contact_form }}">Contact this congressperson</a>
+  </p>
+
+</div>
+<div class="col-md-6">
+  <address>
+    <strong>{{ info.extra.office }}</strong><br>
+    {{ formatAddress(info.extra.address, info.extra.office) }}<br>
+    Phone: {{ info.phone }}<br>
+    Fax {{ info.extra.fax }}
+  </address>
+</div>

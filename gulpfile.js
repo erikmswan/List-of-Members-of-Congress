@@ -19,27 +19,26 @@ var gulp = require('gulp'),
     vinyl = require('vinyl-fs'),
     stripDebug = require('gulp-strip-debug'),
     autoprefix = require('gulp-autoprefixer'),
-    tasks = require('gulp-task-listing');
+    tasks = require('gulp-task-listing'),
+    error = require('gulp-util');
 
 
 /* SCRIPTS --------------------*/
 
-// Browserify
-gulp.task('browserify', function() {
-  browserify('./src/js/requires/requires.js')
-    .bundle()
-    .pipe(source('requires.js'))
-    .pipe(streamify(uglify()))
-    .pipe(streamify(stripDebug()))
-    .pipe(gulp.dest('./build/js/requires'));
-});
+// // Browserify
+// gulp.task('browserify', function() {
+//   browserify('./src/js/requires.js')
+//     .bundle()
+//     .pipe(source('requires.js'))
+//     // .pipe(streamify(uglify()))
+//     .pipe(streamify(stripDebug()))
+//     .pipe(gulp.dest('./build/js/'));
+// });
 
 // JS compiler
 gulp.task('scripts', function() {
-  gulp.src('./src/js/*.js')
-    .pipe(concat('main.js'))
-    .pipe(uglify())
-    .pipe(stripDebug())
+  gulp.src('./src/js/**/*.js')
+    // .pipe(uglify().on('error', error.log))
     .pipe(gulp.dest('./build/js/'));
 });
 
@@ -53,7 +52,6 @@ gulp.task('jshint', function() {
 
 // JSHint watch task
 gulp.task('jsWatch', function() {
-  // watch for JS changes
   gulp.watch('./src/js/*.js', ['jshint']);
 });
 
@@ -84,6 +82,11 @@ var src = './src/*.html',
 		.pipe(changed(dest))
 		.pipe(minifyHTML())
 		.pipe(gulp.dest(dest));
+
+  gulp.src('./src/js/directives/*.html')
+    .pipe(changed('./build/js/directives/'))
+    .pipe(minifyHTML())
+    .pipe(gulp.dest('./build/js/directives'));
 });
 
 // minify new images
@@ -101,7 +104,7 @@ gulp.task('imagemin', function() {
 
 // Build out all files that haven't yet been built
 gulp.task('build', function() {
-  var src = ['./src/*', './src/**/*'],
+  var src = ['./src/*', './src/**/*', '!./src/**/*.less'],
       dest = './build/';
   gulp.src(src)
     .pipe(changed(dest))
@@ -114,14 +117,17 @@ gulp.task('tasks', tasks);
 
 /* DEFAULT --------------------*/
 
-gulp.task('default', ['less', 'imagemin', 'minifyHTML', 'jshint', 'browserify', 'scripts']);
+gulp.task('default', ['build', 'less', 'imagemin', 'minifyHTML', 'jshint', 'scripts']);
 
 
 /* WATCH --------------------*/
 gulp.task('watch', function() {
 
+  // build all
+  gulp.watch(['./src/*', './src/**/*', '!./src/**/*.less'], ['build'])
+
   // watch for JS changes
-  gulp.watch('./src/js/*.js', ['browserify', 'jshint']);
+  gulp.watch('./src/js/**/*.js', ['jshint', 'scripts']);
 
   // watch for CSS changes
   gulp.watch('./src/css/*.less', ['less']);

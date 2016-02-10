@@ -1,3 +1,24 @@
 /* MAIN.LESS */
+body {
+  font-family: Helvetica, sans-serif;
+}
+.main {
+  margin: 60px auto;
+}
+.row {
+  margin: 30px auto;
+}
+.header {
+  margin-bottom: 60px;
+}
+/* Typography */
+h1,
+h2 {
+  font-family: 'Oswald', sans-serif;
+}
+h2,
+h3 {
+  margin-top: 0;
+}
 
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsInNvdXJjZXNDb250ZW50IjpbXSwiZmlsZSI6Im1haW4uY3NzIiwic291cmNlUm9vdCI6Ii9zb3VyY2UvIn0= */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1haW4ubGVzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBR0E7RUFBTyxrQ0FBQTs7QUFDUDtFQUFRLGlCQUFBOztBQUNSO0VBQU8saUJBQUE7O0FBQ1A7RUFBVSxtQkFBQTs7O0FBR1Y7QUFBSTtFQUFLLGFBQWEsb0JBQWI7O0FBQ1Q7QUFBSTtFQUFLLGFBQUEiLCJzb3VyY2VzQ29udGVudCI6WyJcbi8qIE1BSU4uTEVTUyAqL1xuXG5ib2R5IHsgZm9udC1mYW1pbHk6IEhlbHZldGljYSwgc2Fucy1zZXJpZjsgfVxuLm1haW4geyBtYXJnaW46NjBweCBhdXRvOyB9XG4ucm93IHsgbWFyZ2luOjMwcHggYXV0bzsgfVxuLmhlYWRlciB7IG1hcmdpbi1ib3R0b206NjBweDsgfVxuXG4vKiBUeXBvZ3JhcGh5ICovXG5oMSwgaDIgeyBmb250LWZhbWlseTogJ09zd2FsZCcsIHNhbnMtc2VyaWY7IH1cbmgyLCBoMyB7IG1hcmdpbi10b3A6MDsgfVxuIl0sImZpbGUiOiJtYWluLmNzcyIsInNvdXJjZVJvb3QiOiIvc291cmNlLyJ9 */

@@ -6,16 +6,32 @@
         <title>Angular</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
         <link rel="stylesheet" href="css/main.css">
+
     </head>
     <body ng-app="CongressApp">
 
-      <div class="main" ng-controller="MainController">
-        
+      <div class="container main" ng-controller="MainController">
+
+        <div class="header">
+          <h1 class="text-center">All Current Members of Congress</h1>
+          <h2 class="text-center">Count: {{ congressCount }}</h2>
+        </div>
+
+        <div class="row" ng-repeat="congress in congressData">
+          <congress-bio info="congress" index="{{$index}}"></congress-bio>
+        </div>
+
       </div>
 
-        <script src="js/requires/requires.js"></script>
-        <script src="js/main.js"></script>
+        <script src="js/vendor/jquery-2.2.0.js"></script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/vendor/angular.min.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/services/data.js"></script>
+        <script src="js/directives/congressBio.js"></script>
+        <script src="js/controllers/CongressController.js"></script>
     </body>
 </html>
