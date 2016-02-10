@@ -1,12 +1,45 @@
 
-/* MAIN.LESS */
+/* VARIABLES --------------------------------------- */
 
+@base-font-color: #333;
+@base-hover-color: #90C3D4;
+
+
+
+
+/* GENERAL --------------------------------------- */
 body { font-family: Helvetica, sans-serif; }
-.main { margin:60px auto; }
-.row { margin:10px auto; }
-[class^="col"] { margin:20px auto; }
-.header { margin-bottom:60px; }
 
-/* Typography */
-h1, h2 { font-family: 'Oswald', sans-serif; }
+.row {
+  border-bottom:1px solid #d1d1d1;
+  margin:10px auto;
+}
+.row:last-of-type { border:none; }
+
+[class^="col"] { margin:20px auto; }
+
+
+/* TYPOGRAPHY --------------------------------------- */
+h1, h2 {
+  font-family: 'Oswald', sans-serif;
+  cursor:pointer;
+  transition:all 0.3s;
+  a { color:@base-font-color; }
+  &:hover { color: @base-hover-color; }
+}
 h2, h3 { margin-top:0; }
+a {
+  transition:all 0.2s;
+  text-decoration:none;
+  &:hover,
+  &:focus,
+  &:active {
+    color: @base-hover-color;
+    text-decoration:none;
+  }
+}
+
+
+/* CONTENT --------------------------------------- */
+.main { margin:60px auto; }
+.header { margin-bottom:60px; }
