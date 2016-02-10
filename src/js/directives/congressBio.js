@@ -3,7 +3,8 @@ app.directive('congressBio', function() {
       restrict: 'E',
       scope: {
         info: '='
-      },controller: ['$scope', function($scope) {
+      },
+      controller: ['$scope', function($scope) {
 
         $scope.formatAddress = function(address, office) {
           try {
