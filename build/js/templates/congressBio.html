@@ -6,7 +6,7 @@
   <h2><a ng-href="{{ info.website }}">{{ info.title_long }} {{ info.person.firstname }} {{ nicknamePresent(info.person.nickname) }} {{ info.person.lastname }}</a></h2>
   <h4 class="party">{{ info.party }}</h4>
   <p class="description"><strong>Description: </strong>{{ info.description }}<br>
-    <strong>Gender: </strong>{{ info.person.gender_label }}<br>
+    <strong>State: </strong>{{ info.state }}<br>
     <strong>Birthday: </strong>{{ info.person.birthday | date }}
   </p>
   <p class="contact"><a ng-href="{{ info.website }}">Visit their Website</a>
