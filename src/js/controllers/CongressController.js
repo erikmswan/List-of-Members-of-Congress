@@ -1,7 +1,7 @@
 
-app.controller('MainController', ['$scope', 'data', function($scope, data) {
+app.controller('MainController', ['$scope', 'congressData', function($scope, congressData) {
 
-  data.then(function(data) {
+  congressData.getAll().then(function(data) {
     $scope.congressData = data.data.objects;
     $scope.congressCount = data.data.meta.total_count;
   });

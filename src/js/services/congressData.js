@@ -1,4 +1,4 @@
-app.factory('CongressData', ['$http', function ($http){
+app.factory('congressData', ['$http', function ($http){
 
   function getAll() {
     return $http({
