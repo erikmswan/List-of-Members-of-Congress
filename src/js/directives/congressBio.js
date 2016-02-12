@@ -22,13 +22,6 @@ app.directive('congressBio', function() {
         }
 
       }],
-      templateUrl: 'js/templates/congressBio.html',
-      link: function(scope, element, attrs) {
-
-        // // For two congress members in one row
-        // scope.newRow = (function(index) {
-        //   return index % 2 === 0 ? false : true;
-        // })(attrs.index);
-      }
+      templateUrl: 'js/templates/congressBio.html'
   };
 })

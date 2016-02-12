@@ -36,5 +36,69 @@ a {
 
 
 /* CONTENT --------------------------------------- */
+
 .main { margin:60px auto; }
-.header { margin-bottom:60px; }
+
+/* Progress bar */
+.progress-bar-cover {
+  background-color:lighten(@base-hover-color, 10%);
+  position:fixed;
+  top:0;
+  left:0;
+  height:100%;
+  width:100%;
+  transform:translateY(0);
+  transition:all 1s ease-in-out;
+  opacity:1;
+  z-index:15;
+}
+
+.bar {
+  background-color:lighten(@base-hover-color, 10%);
+  position:fixed;
+  top:50%;
+  left:50%;
+  width:200px;
+  height:20px;
+  border-radius:5px;
+  margin-top:-10px;
+  margin-left:-100px;
+  overflow:hidden;
+  z-index:3;
+  &:after {
+    content:'';
+    background-color:white;
+    position:absolute;
+    width:200px;
+    max-width:0;
+    height:20px;
+    opacity:1;
+    transition:max-width 2s, opacity 0.5s;
+    z-index:0;
+  }
+  &.progress-anim:after { max-width:200px; }
+}
+
+/* Progress Animation */
+.progress-bar-cover-remove {
+  transform:translateY(100%);
+  .bar.progress-anim:after {
+    opacity:0;
+  }
+}
+
+
+/* Header */
+.header {
+  margin-bottom:60px;
+  h1, h2 {
+    opacity:0;
+    transform: translateY(-5px);
+    transition:all 0.5s 0.7s;
+    &.reveal {
+      opacity:1;
+      transform: translateY(0);
+    }
+  }
+  h2 { transition-delay: 0.9s; }
+}

@@ -15,13 +15,18 @@
 
       <div class="container main" ng-controller="MainController">
 
+        <div class="progress-bar-cover">
+          <div class="bar">
+          </div>
+        </div>
+
         <div class="header">
           <h1 class="text-center">All Current Members of Congress</h1>
           <h2 class="text-center">Count: {{ congressCount }}</h2>
         </div>
 
-        <div class="row" ng-repeat="congress in congressData">
-          <congress-bio info="congress" index="{{$index}}"></congress-bio>
+        <div class="row" ng-repeat="congress in congressData" on-finish-render="ngRepeatFinished">
+          <congress-bio info="congress"></congress-bio>
         </div>
 
       </div>
@@ -32,6 +37,7 @@
         <script src="js/app.js"></script>
         <script src="js/services/congressData.js"></script>
         <script src="js/directives/congressBio.js"></script>
+        <script src="js/directives/onFinishRender.js"></script>
         <script src="js/controllers/CongressController.js"></script>
     </body>
 </html>
